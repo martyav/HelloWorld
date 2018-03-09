@@ -78,6 +78,53 @@ namespace HelloWorld
             int a = z * x - y;
             int b = y - x % z;
             int c = y/z + x;
+
+            bool IsEven = (x % 2 == 0);
+            bool IsNotDivisibleByThree = (y % 3 != 0);
+            double RoundedToThreePlaces = Math.Round(34.43, 3);
+
+            double A = (double)x;
+            double B = (double)y;
+            double C = (double)z;
+
+            x = (int)A;
+            y = (int)B;
+            z = (int)C;
+
+            Console.WriteLine("This is \"literally\" a string.");
+
+            String Escape = "The Pina Colada song is actually entitled \"Escape\".";
+            Console.WriteLine(Escape);
+
+            String Concatenate = Escape + " But nobody remembers that.";
+            Console.WriteLine(Concatenate);
+
+            Console.WriteLine(Escape + ": " + Escape.Length);
+
+            String OddCharacter = "FiVeR";
+
+            Console.WriteLine(OddCharacter[0] + OddCharacter.Substring(OddCharacter.Length / 2, 1) + OddCharacter.Substring(OddCharacter.Length - 1));
+
+            Console.WriteLine(OddCharacter);
+            Console.WriteLine(OddCharacter.ToUpper());
+            Console.WriteLine(OddCharacter.ToLower());
+
+            Console.WriteLine(OddCharacter.Substring(1, OddCharacter.Length - 2));
+
+            OddCharacter = OddCharacter.Remove(0, 1);
+            OddCharacter = OddCharacter.Remove(OddCharacter.Length - 1, 1);
+
+            Console.WriteLine(OddCharacter);
+
+            String X = "ecks";
+            char Y = 'x';
+
+            int Find(char character, string within)
+            {
+                return within.IndexOf(character);
+            }
+
+            Console.WriteLine(Find(Y, X));
         }
     }
 }
