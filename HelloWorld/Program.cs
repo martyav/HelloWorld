@@ -2,6 +2,20 @@
 
 namespace HelloWorld
 {
+    enum Dino { Raptor = 10, Triceratops, Pigeon, Compy }
+
+    struct Dog{
+        public String name
+        {
+            get; set;
+        }
+
+        public int bones
+        {
+            get; set;  
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -77,7 +91,7 @@ namespace HelloWorld
             int z = 10;
             int a = z * x - y;
             int b = y - x % z;
-            int c = y/z + x;
+            int c = y / z + x;
 
             bool IsEven = (x % 2 == 0);
             bool IsNotDivisibleByThree = (y % 3 != 0);
@@ -124,7 +138,49 @@ namespace HelloWorld
                 return within.IndexOf(character);
             }
 
-            Console.WriteLine(Find(Y, X));
+            bool Is(char character, string within)
+            {
+                return Find(character, within) != -1;
+            }
+
+            string path = @"c:\\user\admin\secret_nudes.jpeg";
+
+            string Spaces = "I like a lot of space.";
+            string[] SeparatedSpaces = Spaces.Split(" ");
+
+            const string ecks = "{0} is {1} {2} {3}.";
+            string why = String.Format(ecks, "T-rex", "a", "big", "sweetie");
+            Console.WriteLine(why);
+
+            double Digits = 66.75309;
+            Console.WriteLine(Digits.ToString("N2"));
+
+            string BoolString = Falsey.ToString();
+            string IntString = x.ToString();
+            string DoubleString = Digits.ToString();
+            string CharString = Charizard.ToString();
+
+            bool StringBool = StringBool = bool.Parse(BoolString);
+            int StringInt = int.Parse(IntString);
+            double StringDouble = double.Parse(DoubleString);
+            char StringChar = char.Parse(CharString);
+
+            Dino Barney = Dino.Pigeon;
+
+            Console.WriteLine(Barney + " " + Barney.GetHashCode().ToString());
+
+            Dog Fido = new Dog();
+
+            Fido.name = "Fido";
+            Fido.bones = 0;
+
+            Dog Pluto = new Dog();
+
+            Pluto.name = Fido.name;
+            Pluto.bones = Fido.bones;
+
+            Console.WriteLine(Pluto.name + " " + Pluto.bones.ToString());
         }
     }
+
 }
