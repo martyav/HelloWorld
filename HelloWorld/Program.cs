@@ -180,6 +180,26 @@ namespace HelloWorld
             Pluto.bones = Fido.bones;
 
             Console.WriteLine(Pluto.name + " " + Pluto.bones.ToString());
+
+            Console.WriteLine("Enter your first name.");
+
+            String firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter your middle name.");
+
+            String middleName = Console.ReadLine();
+
+            Console.WriteLine("Enter your last name.");
+
+            String lastName = Console.ReadLine();
+
+            String fullName = String.Format("{0} {1} {2}", firstName, middleName, lastName);
+
+            Console.WriteLine(fullName);
+
+            Console.WriteLine("Press the Any key to continue. Oh, I mean, any key.");
+
+            Console.ReadKey();
         }
     }
 
