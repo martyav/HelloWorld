@@ -16,6 +16,8 @@ namespace HelloWorld
         }
     }
 
+    enum Direction { Up, Down, Left, Right }
+
     class Program
     {
         static void Main(string[] args)
@@ -197,7 +199,78 @@ namespace HelloWorld
 
             Console.WriteLine(fullName);
 
-            Console.WriteLine("Press the Any key to continue. Oh, I mean, any key.");
+            Console.WriteLine("Press any key to exit...");
+
+            Console.ReadKey();
+
+            void Move(Direction? direction, bool? possible, int distance = 0, string help = "")
+            // giving a parameter a default value allows the user to call the function without providing an argument for that parameter
+            {
+                // If the program is called with no arguments OR called with one argument of “/?”, print a help message explaining what arguments are expected with an example of a valid command line.
+                if ((help.Equals("/?") && possible.Equals(null) && direction.Equals(null)) || (possible.Equals(null) && direction.Equals(null) && help.Equals(String.Empty))) 
+                {
+                    Console.WriteLine("Please enter a Direction, a bool indicating if movement in that direction is possible, and an integer distance.");
+                    Console.WriteLine("Example: ");
+                    Console.WriteLine("Move(Direction.Left, true, 6);");
+                }
+                // If either of the first two arguments are missing, print an error message. The third argument is optional
+                if (possible.Equals(null) && direction.Equals(null))
+                {
+                    Console.WriteLine("Error!");
+                }
+                // Store the arguments in variables of the appropriate type
+                Direction internalDirection = Direction.Left;
+                bool internalPossibility = false;
+                int internalDistance = 0;
+
+                try 
+                {
+                    internalDirection = (Direction)direction;
+                    internalPossibility = (bool)possible;
+                    internalDistance = (int)distance;
+                }
+
+                // If any value can’t be stored correctly, print an error message
+                catch (InvalidCastException e) 
+                {
+                    String FormattedError = String.Format("Error! {0}", e);
+                    Console.WriteLine(FormattedError);
+                }
+
+                // Print the variables stored in step 3. Make sure to include the int if it was specified.
+                String printVector = String.Empty;
+
+                if (internalDistance != 0)
+                {
+                    printVector = String.Format("{0} {1} {2}", internalDirection, internalDistance, internalPossibility);
+                } else {
+                    printVector = String.Format("{0} {1}", internalDirection, internalPossibility);  
+                }
+
+                Console.WriteLine(printVector);
+            }
+
+            Console.WriteLine("Give me a Direction");
+
+            Direction directionHolder = (Direction)int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Give me a possibility");
+
+            bool boolHolder = bool.Parse(Console.ReadLine());
+
+            Console.WriteLine("Give me a distance, if you want");
+
+            int intHolder;
+
+            try { 
+                intHolder = int.Parse(Console.ReadLine());
+            }
+
+            catch (InvalidCastException e) {
+                intHolder = 0;
+            }
+
+            Move(directionHolder, boolHolder, intHolder);
 
             Console.ReadKey();
         }
