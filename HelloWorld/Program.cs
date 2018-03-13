@@ -45,35 +45,47 @@ namespace HelloWorld
              * </summary>
             */
 
-            bool Falsey;
-            int Interchange;
-            double DoubleInterchange;
-            char Charizard;
-            String StringCheese;
+            bool falsey;
+            int interchange;
+            double doubleInterchange;
+            char charizard;
+            String stringCheese;
 
-            Falsey = false;
-            Interchange = 2;
-            DoubleInterchange = (double)2.0 * Interchange;
-            Charizard = '\u0050';
-            StringCheese = "cheese";
+            falsey = false;
+            interchange = 2;
+            doubleInterchange = (double)2.0 * interchange;
+            charizard = '\u0050';
+            stringCheese = "cheese";
 
-            Console.WriteLine(Falsey);
-            Console.WriteLine(Interchange);
-            Console.WriteLine(DoubleInterchange);
-            Console.WriteLine(Charizard);
-            Console.WriteLine(StringCheese);
+            Console.WriteLine(falsey);
+            Console.WriteLine(interchange);
+            Console.WriteLine(doubleInterchange);
+            Console.WriteLine(charizard);
+            Console.WriteLine(stringCheese);
 
-            int Overflow = int.MaxValue;
-            Console.WriteLine(Overflow);
-            Overflow += 1;
-            Console.WriteLine(Overflow == int.MinValue);
+            int overflow = int.MaxValue;
+            Console.WriteLine(overflow);
+            overflow += 1;
+            Console.WriteLine(overflow == int.MinValue);
             // When we increment the max value, it wraps around to the min value
 
-            var ImplicitBool = true;
-            var ImplicitInt = 5;
-            var ImplicitDouble = 25.52;
-            var ImplicitChar = 'X';
-            var ImplicitString = "X";
+            //try  
+            //{
+            //    int goWiththeFlow = checked(int.MinValue - 1);
+            //}
+
+            //catch (System.OverflowException)
+            //{
+            //    Console.WriteLine("Oops, that's gonna overflow");
+            //}
+
+            var implicitBool = true;
+            var implicitInt = 5;
+            var implicitDouble = 25.52;
+            var implicitChar = 'X';
+            var implicitString = "X";
+
+            Console.WriteLine("{0} {1} {2} {3} {4}", implicitInt, implicitBool, implicitChar, implicitDouble, implicitString);
 
             int x = 2;
             int y = 5;
@@ -95,9 +107,9 @@ namespace HelloWorld
             int b = y - x % z;
             int c = y / z + x;
 
-            bool IsEven = (x % 2 == 0);
-            bool IsNotDivisibleByThree = (y % 3 != 0);
-            double RoundedToThreePlaces = Math.Round(34.43, 3);
+            bool isEven = (x % 2 == 0);
+            bool isNotDivisibleByThree = (y % 3 != 0);
+            double roundedToThreePlaces = Math.Round(34.43, 3);
 
             double A = (double)x;
             double B = (double)y;
@@ -109,79 +121,77 @@ namespace HelloWorld
 
             Console.WriteLine("This is \"literally\" a string.");
 
-            String Escape = "The Pina Colada song is actually entitled \"Escape\".";
-            Console.WriteLine(Escape);
+            String escape = "The Pina Colada song is actually entitled \"Escape\".";
+            Console.WriteLine(escape);
 
-            String Concatenate = Escape + " But nobody remembers that.";
-            Console.WriteLine(Concatenate);
+            String concatenate = escape + " But nobody remembers that.";
+            Console.WriteLine(concatenate);
 
-            Console.WriteLine(Escape + ": " + Escape.Length);
+            Console.WriteLine(escape + ": " + escape.Length);
 
-            String OddCharacter = "FiVeR";
+            String oddCharacter = "FiVeR";
 
-            Console.WriteLine(OddCharacter[0] + OddCharacter.Substring(OddCharacter.Length / 2, 1) + OddCharacter.Substring(OddCharacter.Length - 1));
+            Console.WriteLine(oddCharacter[0] + oddCharacter.Substring(oddCharacter.Length / 2, 1) + oddCharacter.Substring(oddCharacter.Length - 1));
 
-            Console.WriteLine(OddCharacter);
-            Console.WriteLine(OddCharacter.ToUpper());
-            Console.WriteLine(OddCharacter.ToLower());
+            Console.WriteLine(oddCharacter);
+            Console.WriteLine(oddCharacter.ToUpper());
+            Console.WriteLine(oddCharacter.ToLower());
 
-            Console.WriteLine(OddCharacter.Substring(1, OddCharacter.Length - 2));
+            Console.WriteLine(oddCharacter.Substring(1, oddCharacter.Length - 2));
 
-            OddCharacter = OddCharacter.Remove(0, 1);
-            OddCharacter = OddCharacter.Remove(OddCharacter.Length - 1, 1);
+            oddCharacter = oddCharacter.Remove(0, 1);
+            oddCharacter = oddCharacter.Remove(oddCharacter.Length - 1, 1);
 
-            Console.WriteLine(OddCharacter);
+            Console.WriteLine(oddCharacter);
 
             String X = "ecks";
             char Y = 'x';
 
-            int Find(char character, string within)
+            int find(char character, string within)
             {
                 return within.IndexOf(character);
             }
 
-            bool Is(char character, string within)
+            bool isThis(char character, string within)
             {
-                return Find(character, within) != -1;
+                return find(character, within) != -1;
             }
 
             string path = @"c:\\user\admin\secret_nudes.jpeg";
 
-            string Spaces = "I like a lot of space.";
-            string[] SeparatedSpaces = Spaces.Split(" ");
+            string spaces = "I like a lot of space.";
+            string[] separatedSpaces = spaces.Split(" ");
 
-            const string ecks = "{0} is {1} {2} {3}.";
-            string why = String.Format(ecks, "T-rex", "a", "big", "sweetie");
-            Console.WriteLine(why);
+            Console.WriteLine("{0} is {1} {2} {3}.", "T-rex", "a", "big", "sweetie");
 
-            double Digits = 66.75309;
-            Console.WriteLine(Digits.ToString("N2"));
+            double digits = 66.75309;
+            Console.WriteLine(digits.ToString("N2"));
 
-            string BoolString = Falsey.ToString();
-            string IntString = x.ToString();
-            string DoubleString = Digits.ToString();
-            string CharString = Charizard.ToString();
+            string boolString = falsey.ToString();
+            string intString = x.ToString();
+            string doubleString = digits.ToString();
+            string charString = charizard.ToString();
 
-            bool StringBool = StringBool = bool.Parse(BoolString);
-            int StringInt = int.Parse(IntString);
-            double StringDouble = double.Parse(DoubleString);
-            char StringChar = char.Parse(CharString);
+            bool stringBool = stringBool = bool.Parse(boolString);
+            int stringInt = int.Parse(intString);
+            double stringDouble = double.Parse(doubleString);
+            char stringChar = char.Parse(charString);
 
-            Dino Barney = Dino.Pigeon;
+            Dino barney = Dino.Pigeon;
 
-            Console.WriteLine(Barney + " " + Barney.GetHashCode().ToString());
+            Console.WriteLine(barney + " " + barney.GetHashCode().ToString());
 
-            Dog Fido = new Dog();
+            Dog fido = new Dog();
 
-            Fido.name = "Fido";
-            Fido.bones = 0;
+            fido.name = "Fido";
+            fido.bones = 0;
 
-            Dog Pluto = new Dog();
+            Dog pluto = new Dog();
 
-            Pluto.name = Fido.name;
-            Pluto.bones = Fido.bones;
+            pluto.name = fido.name;
+            pluto.bones = fido.bones;
 
-            Console.WriteLine(Pluto.name + " " + Pluto.bones.ToString());
+            Console.WriteLine(pluto.name + " " + pluto.bones.ToString());
 
             Console.WriteLine("Enter your first name.");
 
@@ -266,7 +276,7 @@ namespace HelloWorld
                 intHolder = int.Parse(Console.ReadLine());
             }
 
-            catch (InvalidCastException e) {
+            catch (InvalidCastException) {
                 intHolder = 0;
             }
 
